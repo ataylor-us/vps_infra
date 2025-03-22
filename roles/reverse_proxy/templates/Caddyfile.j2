@@ -6,7 +6,20 @@
     dns cloudflare {{ cloudflare_token }}
   }
 }
-{{ domain_name }} {
+
+http://{{ domain_name }} {
+  redir https://{{ domain_name }}{uri}
+}
+
+http://www.{{ domain_name }} {
+  redir https://{{ domain_name }}{uri}
+}
+
+https://www.{{ domain_name }} {
+  redir https://{{ domain_name }}{uri}
+}
+
+https://{{ domain_name }} {
   import cloudflare
   reverse_proxy localhost:9000
 }
