@@ -1,0 +1,15 @@
+---
+- name: Set logging
+  become: true
+  community.general.ufw:
+    logging: 'off'
+- name: Limit ssh connections
+  become: true
+  community.general.ufw:
+    rule: limit
+    port: ssh
+    proto: tcp
+- name: Enable UFW
+  become: true
+  community.general.ufw:
+    state: enabled

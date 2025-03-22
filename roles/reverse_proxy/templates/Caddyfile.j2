@@ -1,0 +1,12 @@
+{
+  admin "unix//var/lib/caddy/admin.socket"
+}
+(cloudflare) {
+  tls {
+    dns cloudflare {{ cloudflare_token }}
+  }
+}
+{{ domain_name }} {
+  import cloudflare
+  reverse_proxy localhost:9000
+}
