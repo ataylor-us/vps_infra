@@ -1,0 +1,6 @@
+---
+packages:
+  - borgbackup
+  - borgmatic
+  - lz4
+  - sqlite3

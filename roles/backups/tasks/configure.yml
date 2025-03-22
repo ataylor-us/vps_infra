@@ -1,0 +1,28 @@
+---
+- name: Create borgmatic config directory
+  become: true
+  ansible.builtin.file:
+    group: root
+    mode: "0750"
+    owner: root
+    path: /etc/borgmatic
+    state: directory
+- name: Copy borgmatic config
+  become: true
+  ansible.builtin.template:
+    dest: /etc/borgmatic/config.yaml
+    group: root
+    mode: "0600"
+    owner: root
+    src: config.yaml.j2
+- name: Add borgmatic backup & prune job
+  become: true
+  ansible.builtin.cron:
+    day: "*"
+    hour: "*/6"
+    job: borgmatic -C -p
+    minute: "15"
+    month: "*"
+    name: borgmatic create + prune
+    user: root
+    weekday: "*"

@@ -1,0 +1,13 @@
+---
+- name: Configure system
+  hosts: vps
+  vars_files:
+    - vars/public.yml
+    - vars/vault.yml
+  roles:
+    - role: hostname
+    - role: firewall
+    - role: reverse_proxy
+    - role: recipes
+    - role: backups
+    - role: notifications

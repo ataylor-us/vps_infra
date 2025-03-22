@@ -1,0 +1,7 @@
+---
+packages:
+  - ufw
+  - fail2ban
+services:
+  - ufw.service
+  - fail2ban.service

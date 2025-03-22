@@ -1,0 +1,22 @@
+source_directories:
+  - /home
+  - /etc
+  - /root
+  - /var
+repositories:
+    - path: '{{ remote_borg_repo_path }}'
+      label: "remote"
+compression: lz4
+encryption_passphrase: '{{ borg_passphrase }}'
+archive_name_format: '{hostname}-{now:%Y-%m-%d-%H%M%S}'
+retries: 5
+retry_wait: 5
+keep_within: 10d
+keep_daily: 4
+keep_weekly: 2
+keep_monthly: 1
+keep_yearly: 0
+before_backup:
+  - sqlite3 /var/opt/mealie/mealie.db .dump > /root/borgmatic-dump-sqlite3-mealie
+after_backup:
+  - rm /root/borgmatic-dump-sqlite3-mealie
