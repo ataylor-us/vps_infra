@@ -9,7 +9,7 @@
     rule: limit
     port: ssh
     proto: tcp
-- name: Enable UFW
+- name: Enable firewall
   become: true
   community.general.ufw:
     state: enabled
