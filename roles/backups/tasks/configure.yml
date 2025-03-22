@@ -19,9 +19,9 @@
   become: true
   ansible.builtin.cron:
     day: "*"
-    hour: "*/6"
+    hour: "5"
     job: borgmatic -C -p
-    minute: "15"
+    minute: "05"
     month: "*"
     name: borgmatic create + prune
     user: root
