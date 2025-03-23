@@ -2,7 +2,7 @@
 - name: Set logging
   become: true
   community.general.ufw:
-    logging: 'off'
+    logging: "off"
 - name: Limit ssh connections
   become: true
   community.general.ufw:
