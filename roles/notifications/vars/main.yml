@@ -3,6 +3,7 @@ packages:
   - podman
   - slirp4netns
   - msmtp
+  - msmtp-mta
   - s-nail
 services:
   - mailrise-container.service
