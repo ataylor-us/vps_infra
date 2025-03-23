@@ -5,3 +5,4 @@ packages:
 services:
   - ufw.service
   - fail2ban.service
+  - ssh.service
