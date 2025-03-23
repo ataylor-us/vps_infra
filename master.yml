@@ -5,7 +5,7 @@
     - vars/public.yml
     - vars/vault.yml
   roles:
-    - role: hostname
+    - role: system
     - role: firewall
     - role: reverse_proxy
     - role: recipes
