@@ -1,0 +1,3 @@
+---
+absent_packages:
+  - snapd
