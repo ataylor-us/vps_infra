@@ -1,0 +1,7 @@
+---
+- name: Restart firewall
+  ansible.builtin.systemd:
+    name: "{{ item }}"
+    state: restarted
+  become: true
+  loop: "{{ services }}"

@@ -44,17 +44,5 @@
     mode: "0644"
     owner: root
   notify: Restart caddy
-- name: Allow http
-  become: true
-  community.general.ufw:
-    rule: allow
-    port: 80
-    proto: tcp
-- name: Allow https
-  become: true
-  community.general.ufw:
-    rule: allow
-    port: 443
-    proto: tcp
 - name: Flush handlers
   ansible.builtin.meta: flush_handlers

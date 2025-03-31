@@ -11,6 +11,7 @@
     - role: recipes
     - role: backups
     - role: notifications
+    - role: artis3n.tailscale.device
   tasks:
     - name: Add podman cleanup job
       become: true
