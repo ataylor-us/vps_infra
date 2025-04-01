@@ -9,4 +9,4 @@
     name: "{{ item }}"
     state: restarted
   become: true
-  loop: "{{ services }}"
+  loop: "{{ started_services }}"
