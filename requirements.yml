@@ -1,3 +1,4 @@
 ---
-collections:
+roles:
   - name: artis3n.tailscale
+  - name: geerlingguy.swap

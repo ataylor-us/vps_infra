@@ -10,7 +10,9 @@
 http://{{ domain_name }} {
   redir https://{{ domain_name }}{uri}
 }
-
+http://chat.{{ domain_name }} {
+  redir https://{{ domain_name }}{uri}
+}
 http://www.{{ domain_name }} {
   redir https://{{ domain_name }}{uri}
 }
@@ -18,8 +20,11 @@ http://www.{{ domain_name }} {
 https://www.{{ domain_name }} {
   redir https://{{ domain_name }}{uri}
 }
-
 https://{{ domain_name }} {
   import cloudflare
   reverse_proxy localhost:9000
+}
+https://chat.{{ domain_name }} {
+  import cloudflare
+  reverse_proxy localhost:8084
 }
