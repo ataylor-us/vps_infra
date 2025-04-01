@@ -2,7 +2,7 @@
 packages:
   - ufw
   - fail2ban
-services:
-  - ufw.service
+started_services:
   - fail2ban.service
-  - ssh.service
+enabled_services:
+  - ufw.service

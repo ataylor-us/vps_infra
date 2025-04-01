@@ -4,5 +4,5 @@ packages:
   - borgmatic
   - lz4
   - sqlite3
-services:
+started_services:
   - borgmatic.timer

@@ -1,3 +1,5 @@
 ---
 absent_packages:
   - snapd
+enabled_services:
+  - podman-clean-transient.service
