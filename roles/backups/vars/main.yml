@@ -2,7 +2,7 @@
 packages:
   - borgbackup
   - borgmatic
-  - lz4
+  - zstd
   - sqlite3
 started_services:
   - borgmatic.timer
