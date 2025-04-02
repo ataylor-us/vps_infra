@@ -4,4 +4,3 @@ open_webui_version: v0.6.0
 mailrise_version: latest
 mailrise_domain: mailrise
 caddy_url: https://caddyserver.com/api/download?os=linux&arch=amd64&p=github.com%2Fcaddy-dns%2Fcloudflare
-swap_file_size_mb: "1024"
