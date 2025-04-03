@@ -22,9 +22,9 @@ https://www.{{ domain_name }} {
 }
 https://{{ domain_name }} {
   import cloudflare
-  reverse_proxy localhost:9000
+  reverse_proxy localhost:{{ mealie_port }}
 }
 https://chat.{{ domain_name }} {
   import cloudflare
-  reverse_proxy localhost:8084
+  reverse_proxy localhost:{{ open_webui_port }}
 }
