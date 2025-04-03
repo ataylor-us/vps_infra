@@ -33,7 +33,7 @@
       SMTP_USER: mealie@{{ domain_name }}
       SMTP_PASSWORD: "{{ mealie_smtp_password }}"
     ports:
-      - 9000:9000
+      - 127.0.0.1:{{ mealie_port }}:9000
     volumes:
       - /var/opt/mealie:/app/data:rw
     quadlet_options:
