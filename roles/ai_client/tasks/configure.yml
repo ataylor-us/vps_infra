@@ -15,7 +15,6 @@
     state: quadlet
     quadlet_filename: open-webui-container
     network: slirp4netns
-    memory: 400m
     ports:
       - 127.0.0.1:{{ open_webui_port }}:8080
     volumes:
