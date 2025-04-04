@@ -7,3 +7,5 @@ packages:
   - s-nail
 started_services:
   - mailrise-container.service
+enabled_services:
+  - podman-clean-transient.service

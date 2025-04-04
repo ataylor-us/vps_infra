@@ -8,6 +8,7 @@
   community.general.timezone:
     name: America/New_York
 - name: Disable ssh password auth
+  become: true
   ansible.builtin.lineinfile:
     dest: /etc/ssh/sshd_config
     regexp: ^PasswordAuthentication

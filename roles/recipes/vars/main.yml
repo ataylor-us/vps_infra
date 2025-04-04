@@ -4,3 +4,5 @@ packages:
   - slirp4netns
 started_services:
   - mealie-container.service
+enabled_services:
+  - podman-clean-transient.service
