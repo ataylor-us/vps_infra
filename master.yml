@@ -6,10 +6,10 @@
     - vars/vault.yml
   roles:
     - role: system
-    - role: firewall
     - role: reverse_proxy
     - role: recipes
     - role: backups
     - role: notifications
     - role: ai_client
     - role: artis3n.tailscale.device
+    - role: firewall

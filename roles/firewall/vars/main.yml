@@ -4,5 +4,4 @@ packages:
   - fail2ban
 started_services:
   - fail2ban.service
-enabled_services:
   - ufw.service

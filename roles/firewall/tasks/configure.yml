@@ -1,0 +1,5 @@
+---
+- name: Enable ufw
+  become: true
+  community.general.ufw:
+    state: enabled
