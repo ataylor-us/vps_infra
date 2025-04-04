@@ -1,2 +1,0 @@
-- [ ] Add generated ssh key
-- [ ] Enforce unattended-upgrades
