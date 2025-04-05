@@ -13,6 +13,8 @@
     name: open-webui
     image: ghcr.io/open-webui/open-webui:{{ open_webui_version }}
     state: quadlet
+    env:
+      WEBUI_URL: https://chat.{{ domain_name }}
     quadlet_filename: open-webui-container
     network: slirp4netns
     ports:
