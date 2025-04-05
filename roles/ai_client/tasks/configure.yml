@@ -15,6 +15,9 @@
     state: quadlet
     env:
       WEBUI_URL: https://chat.{{ domain_name }}
+      WEBUI_SECRET_KEY: '{{ open_webui_secret_key }}'
+      ENABLE_SIGNUP: false
+      ENABLE_OLLAMA_API: false
     quadlet_filename: open-webui-container
     network: slirp4netns
     ports:
