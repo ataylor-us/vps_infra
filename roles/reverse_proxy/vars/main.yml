@@ -1,3 +1,5 @@
 ---
+packages:
+  - podman
 started_services:
   - caddy-container.service
