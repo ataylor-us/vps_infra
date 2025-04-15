@@ -15,4 +15,4 @@
     - role: firewall
     - role: hifis.toolkit.unattended_upgrades
       become: true
-      unattended_mail: "root"
+      unattended_mail: root
