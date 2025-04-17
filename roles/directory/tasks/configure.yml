@@ -1,0 +1,48 @@
+---
+- name: Create lldap data directory
+  become: true
+  ansible.builtin.file:
+    path: /var/opt/lldap
+    state: directory
+    owner: 1000
+    group: 1000
+    mode: "0755"
+- name: Create a Quadlet file for lldap
+  become: true
+  containers.podman.podman_container:
+    name: lldap
+    image: docker.io/lldap/lldap:{{ lldap_version }}
+    state: quadlet
+    quadlet_filename: lldap-container
+    network: slirp4netns
+    env:
+      UID: 1000
+      GID: 1000
+      TZ: America/New_York
+      LLDAP_JWT_SECRET: '{{ lldap_jwt_secret }}'
+      LLDAP_KEY_SEED: '{{ lldap_key_seed }}'
+      LLDAP_LDAP_BASE_DN: '{{ lldap_base_dn }}'
+      LLDAP_LDAP_USER_PASS: '{{ lldap_admin_password }}'
+      LLDAP_SMTP_OPTIONS__ENABLE_PASSWORD_RESET: "true"
+      LLDAP_SMTP_OPTIONS__SERVER: '{{ lldap_smtp_host }}'
+      LLDAP_SMTP_OPTIONS__PORT: '{{ lldap_smtp_port }}'
+      LLDAP_SMTP_OPTIONS__SMTP_ENCRYPTION: STARTTLS
+      LLDAP_SMTP_OPTIONS__USER: '{{ lldap_smtp_user }}'
+      LLDAP_SMTP_OPTIONS__PASSWORD: '{{ lldap_smtp_password }}'
+    ports:
+      - 127.0.0.1:{{ lldap_port }}:17170
+    volumes:
+      - /var/opt/lldap:/data:rw
+    quadlet_options:
+      - AutoUpdate=registry
+      - Pull=always
+      - |
+        [Unit]
+        After=network-online.target nss-lookup.target
+        [Install]
+        WantedBy=default.target
+  notify:
+    - Reload systemd for lldap
+    - Restart lldap
+- name: Flush handlers
+  ansible.builtin.meta: flush_handlers
