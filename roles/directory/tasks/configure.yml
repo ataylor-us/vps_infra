@@ -29,10 +29,15 @@
       LLDAP_SMTP_OPTIONS__SMTP_ENCRYPTION: STARTTLS
       LLDAP_SMTP_OPTIONS__USER: '{{ lldap_smtp_user }}'
       LLDAP_SMTP_OPTIONS__PASSWORD: '{{ lldap_smtp_password }}'
+      LLDAP_LDAPS_OPTIONS__ENABLED: "true"
+      LLDAP_LDAPS_OPTIONS__CERT_FILE: '{{ lldap_cert_path }}'
+      LLDAP_LDAPS_OPTIONS__KEY_FILE: '{{ lldap_key_path }}'
     ports:
       - 127.0.0.1:{{ lldap_port }}:17170
+      - 17170:17170
     volumes:
       - /var/opt/lldap:/data:rw
+      - /var/opt/caddy:/var/opt/caddy:ro
     quadlet_options:
       - AutoUpdate=registry
       - Pull=always
