@@ -8,3 +8,4 @@ open_webui_port: 10002
 lldap_port: 10003
 mailrise_version: latest
 mailrise_domain: mailrise
+swap_file_size_mb: '4096'
