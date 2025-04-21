@@ -2,3 +2,5 @@
 collections:
   - name: artis3n.tailscale
   - name: hifis.toolkit
+roles:
+  - name: geerlingguy.swap
