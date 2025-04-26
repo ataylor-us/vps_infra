@@ -19,19 +19,19 @@
       UID: 1000
       GID: 1000
       TZ: America/New_York
-      LLDAP_JWT_SECRET: '{{ lldap_jwt_secret }}'
-      LLDAP_KEY_SEED: '{{ lldap_key_seed }}'
-      LLDAP_LDAP_BASE_DN: '{{ lldap_base_dn }}'
-      LLDAP_LDAP_USER_PASS: '{{ lldap_admin_password }}'
+      LLDAP_JWT_SECRET: "{{ lldap_jwt_secret }}"
+      LLDAP_KEY_SEED: "{{ lldap_key_seed }}"
+      LLDAP_LDAP_BASE_DN: "{{ lldap_base_dn }}"
+      LLDAP_LDAP_USER_PASS: "{{ lldap_admin_password }}"
       LLDAP_SMTP_OPTIONS__ENABLE_PASSWORD_RESET: "true"
-      LLDAP_SMTP_OPTIONS__SERVER: '{{ lldap_smtp_host }}'
-      LLDAP_SMTP_OPTIONS__PORT: '{{ lldap_smtp_port }}'
+      LLDAP_SMTP_OPTIONS__SERVER: "{{ lldap_smtp_host }}"
+      LLDAP_SMTP_OPTIONS__PORT: "{{ lldap_smtp_port }}"
       LLDAP_SMTP_OPTIONS__SMTP_ENCRYPTION: STARTTLS
-      LLDAP_SMTP_OPTIONS__USER: '{{ lldap_smtp_user }}'
-      LLDAP_SMTP_OPTIONS__PASSWORD: '{{ lldap_smtp_password }}'
+      LLDAP_SMTP_OPTIONS__USER: "{{ lldap_smtp_user }}"
+      LLDAP_SMTP_OPTIONS__PASSWORD: "{{ lldap_smtp_password }}"
       LLDAP_LDAPS_OPTIONS__ENABLED: "true"
-      LLDAP_LDAPS_OPTIONS__CERT_FILE: '{{ lldap_cert_path }}'
-      LLDAP_LDAPS_OPTIONS__KEY_FILE: '{{ lldap_key_path }}'
+      LLDAP_LDAPS_OPTIONS__CERT_FILE: "{{ lldap_cert_path }}"
+      LLDAP_LDAPS_OPTIONS__KEY_FILE: "{{ lldap_key_path }}"
     ports:
       - 127.0.0.1:{{ lldap_port }}:17170
       - 636:6360
