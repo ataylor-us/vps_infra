@@ -1,6 +1,6 @@
 ---
 mealie_version: v2.8.0
-open_webui_version: v0.6.5
+open_webui_version: v0.6.6
 caddy_version: 2.10.0
 mealie_port: 10001
 open_webui_port: 10002
