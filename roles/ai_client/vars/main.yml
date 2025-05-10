@@ -1,8 +1,8 @@
 ---
 packages:
   - podman
-  - slirp4netns
 started_services:
   - open-webui-container.service
+  - tika-container.service
 enabled_services:
   - podman-clean-transient.service

@@ -10,6 +10,27 @@
 - name: Create a Quadlet file
   become: true
   containers.podman.podman_container:
+    name: tika
+    image: docker.io/apache/tika:{{ tika_version }}
+    state: quadlet
+    quadlet_filename: tika-container
+    network: host
+    quadlet_options:
+      - AutoUpdate=registry
+      - Pull=always
+      - |
+        [Unit]
+        After=network-online.target nss-lookup.target
+        [Service]
+        Restart=always
+        [Install]
+        WantedBy=default.target
+  notify:
+    - Reload systemd for open-webui
+    - Restart open-webui
+- name: Create a Quadlet file
+  become: true
+  containers.podman.podman_container:
     name: open-webui
     image: ghcr.io/open-webui/open-webui:{{ open_webui_version }}
     state: quadlet
@@ -19,9 +40,38 @@
       ENABLE_SIGNUP: false
       ENABLE_OLLAMA_API: false
     quadlet_filename: open-webui-container
-    network: slirp4netns
-    ports:
-      - 127.0.0.1:{{ open_webui_port }}:8080
+    # TODO put this on a separate network once you fix the podman network interface issues
+    network: host
+    volumes:
+      - /var/opt/open-webui:/app/backend/data:rw
+    quadlet_options:
+      - AutoUpdate=registry
+      - Pull=always
+      - |
+        [Unit]
+        After=network-online.target nss-lookup.target tika-container.service
+        [Service]
+        Restart=always
+        [Install]
+        WantedBy=default.target
+  notify:
+    - Reload systemd for open-webui
+    - Restart open-webui
+- name: Create a Quadlet file
+  become: true
+  containers.podman.podman_container:
+    name: open-webui
+    image: ghcr.io/open-webui/open-webui:{{ open_webui_version }}
+    state: quadlet
+    env:
+      WEBUI_URL: https://chat.{{ domain_name }}
+      WEBUI_SECRET_KEY: "{{ open_webui_secret_key }}"
+      ENABLE_SIGNUP: false
+      ENABLE_OLLAMA_API: false
+    quadlet_filename: open-webui-container
+    network: host
+    #ports:
+    #  - 127.0.0.1:{{ open_webui_port }}:8080
     volumes:
       - /var/opt/open-webui:/app/backend/data:rw
     quadlet_options:
