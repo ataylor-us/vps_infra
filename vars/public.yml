@@ -1,5 +1,5 @@
 ---
-mealie_version: v2.8.0
+mealie_version: v3.0.0
 open_webui_version: v0.6.15
 caddy_version: 2.10.0-alpine
 mealie_port: 10001
