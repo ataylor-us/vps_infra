@@ -7,9 +7,6 @@
 http://{{ domain_name }} {
   redir https://{{ domain_name }}{uri}
 }
-http://chat.{{ domain_name }} {
-  redir https://chat.{{ domain_name }}{uri}
-}
 http://www.{{ domain_name }} {
   redir https://{{ domain_name }}{uri}
 }
@@ -19,8 +16,4 @@ https://www.{{ domain_name }} {
 https://{{ domain_name }} {
   import cloudflare
   reverse_proxy localhost:{{ mealie_port }}
-}
-https://chat.{{ domain_name }} {
-  import cloudflare
-  reverse_proxy localhost:{{ open_webui_port }}
 }
