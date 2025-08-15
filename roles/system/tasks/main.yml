@@ -1,5 +1,0 @@
----
-- name: Write configuration
-  ansible.builtin.include_tasks: configure.yml
-- name: Remove packages
-  ansible.builtin.import_tasks: common/tasks/remove_packages.yml
