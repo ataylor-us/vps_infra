@@ -9,7 +9,7 @@
     - role: recipes
     - role: backups
     - role: notifications
-    - role: artis3n.tailscale.device
+    - role: artis3n.tailscale.machine
     - role: firewall
     - role: hifis.toolkit.unattended_upgrades
       become: true
