@@ -1,7 +1,9 @@
 ---
 mealie_version: v3.1.1
+open_webui_version: v0.6.25
 caddy_version: 2.10.0-alpine
-mealie_port: 10001
+mealie_port: 9000
+open_webui_port: 8080
 mailrise_version: latest
 mailrise_domain: mailrise
 swap_file_size_mb: "2048"

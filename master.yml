@@ -10,6 +10,7 @@
     - role: backups
     - role: notifications
     - role: artis3n.tailscale.machine
+    - role: ai_client
     - role: firewall
     - role: hifis.toolkit.unattended_upgrades
       become: true
