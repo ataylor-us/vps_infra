@@ -17,3 +17,14 @@
       unattended_mail: root
     - role: geerlingguy.swap
       become: true
+  tasks:
+    - name: Add podman cleanup job
+      become: true
+      ansible.builtin.cron:
+        name: Cleanup dangling podman extras
+        minute: "0"
+        hour: "3"
+        day: "*"
+        month: "*"
+        weekday: "0"
+        job: podman volume prune -f &> /dev/null && podman image prune -af &> /dev/null
