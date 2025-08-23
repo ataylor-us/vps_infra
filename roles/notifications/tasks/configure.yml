@@ -39,10 +39,8 @@
     image: ghcr.io/yoryan/mailrise:{{ mailrise_version }}
     state: quadlet
     quadlet_filename: mailrise-container
-    network: slirp4netns
+    network: host
     user: 999:999
-    ports:
-      - 8025:8025
     volumes:
       - /etc/mailrise.conf:/etc/mailrise.conf:ro
     quadlet_options:
